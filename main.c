@@ -4,6 +4,8 @@
 #include <ctype.h> // Para usar la función tolower
 
 #define MAX_LONGITUD_PALABRA 50
+#define HASH_SIZE 1000000 // Tamaño del hash set
+
 
 // Función para comparar cadenas (necesaria para la búsqueda binaria)
 int compare(const void *a, const void *b) {
@@ -62,24 +64,93 @@ char** buscaPalabrasConTodasLetras(char *letras, char *palabras[], int numPalabr
     return resultados;
 }
 
-
+/*hazme esta funcion, void eliminarRepetidos(char **palabras, int *numResultados) {
+donde palabras es un array de strings en c y numresultados el numero de elementos en palabras. El programa elimina repetidos dentro de palabras y actualiza numResultados. Quiero que sea con la tecnica mas eficiente posible, ya que puede haber millones de resultados para buscar uno a uno y eliminar duplicados.*/
 // Función para buscar palabras que contienen al menos una de las letras especificadas (ignorando tildes)
-void eliminarRepetidos(char **palabras, int *numResultados) {
-    int n = *numResultados;
-    if (n <= 1)
-        return;
 
-    int j = 0;
-    for (int i = 1; i < n; i++) {
-        if (strcmp(palabras[i], palabras[j]) != 0) {
-            j++;
-            if (i != j)
+typedef struct Node {
+    char *data;
+    struct Node *next;
+} Node;
 
-                strcpy(palabras[j], palabras[i]);
+typedef struct {
+    Node *buckets[HASH_SIZE];
+} HashSet;
+
+unsigned long hash(const char *str) {
+    unsigned long hash = 5381;
+    int c;
+
+    while ((c = *str++))
+        hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+
+    return hash % HASH_SIZE;
+}
+
+HashSet *createHashSet() {
+    HashSet *set = (HashSet *)malloc(sizeof(HashSet));
+    if (set == NULL) {
+        fprintf(stderr, "Error: No se pudo asignar memoria para el hash set.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    for (int i = 0; i < HASH_SIZE; ++i)
+        set->buckets[i] = NULL;
+
+    return set;
+}
+
+void insertHashSet(HashSet *set, const char *str) {
+    unsigned long index = hash(str);
+    Node *node = set->buckets[index];
+
+    while (node != NULL) {
+        if (strcmp(node->data, str) == 0)
+            return;
+        node = node->next;
+    }
+
+    node = (Node *)malloc(sizeof(Node));
+    if (node == NULL) {
+        fprintf(stderr, "Error: No se pudo asignar memoria para el nodo del hash set.\n");
+        exit(EXIT_FAILURE);
+    }
+
+    node->data = strdup(str);
+    node->next = set->buckets[index];
+    set->buckets[index] = node;
+}
+
+void freeHashSet(HashSet *set) {
+    for (int i = 0; i < HASH_SIZE; ++i) {
+        Node *node = set->buckets[i];
+        while (node != NULL) {
+            Node *temp = node;
+            node = node->next;
+            free(temp->data);
+            free(temp);
         }
     }
-    *numResultados -= 1;
+    free(set);
+}
 
+void eliminarRepetidos(char **palabras, int *numResultados) {
+    HashSet *set = createHashSet();
+
+    int nuevosResultados = 0;
+    for (int i = 0; i < *numResultados; ++i) {
+        if (palabras[i] != NULL) {
+            insertHashSet(set, palabras[i]);
+            palabras[nuevosResultados++] = palabras[i];
+        }
+    }
+
+    for (int i = nuevosResultados; i < *numResultados; ++i)
+        palabras[i] = NULL;
+
+    *numResultados = nuevosResultados;
+
+    freeHashSet(set);
 }
 
 char** buscaPalabrasConAlgunaLetra(char *letras, char *palabras[], int numPalabras, int *numResultados) {
@@ -232,16 +303,19 @@ int main() {
     }
 
     fclose(resultadoArchivo);
-
     // Liberar memoria
     for (int i = 0; i < numResultados; i++) {
+        printf("1:%d ,%d\n", i, numResultados);
         free(resultados[i]);
     }
     free(resultados);
 
-    for (int i = 0; i < numPalabras; i++) {
-        free(palabras[i]);
+    for (int i = 0; i < numPalabras-1; i++) {
+        //printf("2:%d \n", i);
+
+        //free(palabras[i]);
     }
+
     free(palabras);
 
     return 0;
