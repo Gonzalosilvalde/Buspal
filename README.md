@@ -33,9 +33,9 @@ Contiene el código principal que interactúa con el usuario, lee las palabras d
 ## Compilación
 Para compilar el proyecto, utiliza el siguiente comando:
 
-''' sh
+
 Copiar código
-gcc -o buscador main.c hashset.c busqueda.c -fopenmp'''
+`gcc -o buscador main.c hashset.c busqueda.c -fopenmp`
 Esto generará un ejecutable llamado buscador.
 
 Uso
