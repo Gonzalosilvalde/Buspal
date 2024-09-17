@@ -4,16 +4,16 @@ Este proyecto es una aplicación en C que permite buscar palabras en un archivo 
 # Funcionalidad
 El programa ofrece tres tipos de búsquedas en un conjunto de palabras:
 
-1. **Palabras que contengan todas las letras especificadas.
-2. **Palabras que contengan alguna de las letras especificadas.
-3. **Palabras que contengan todas las letras especificadas en cualquier orden (y con posibles letras adicionales).
+1. ** Palabras que contengan todas las letras especificadas.
+2. ** Palabras que contengan alguna de las letras especificadas.
+3. ** Palabras que contengan todas las letras especificadas en cualquier orden (y con posibles letras adicionales).
 # Estructura del Proyecto
 El código está dividido en varios archivos para una mejor modularidad:
 
-- ** hashset.h: Declaraciones para el manejo del hash set.
-- ** hashset.c: Implementación de las funciones del hash set. 
-- ** busqueda.c: Implementación de las funciones de búsqueda.
-- ** main.c: Archivo principal que utiliza las funciones definidas en los otros archivos.
+- hashset.h: Declaraciones para el manejo del hash set.
+- hashset.c: Implementación de las funciones del hash set. 
+- busqueda.c: Implementación de las funciones de búsqueda.
+- main.c: Archivo principal que utiliza las funciones definidas en los otros archivos.
 # Archivos del Proyecto
 ### hashset.h
 Define las estructuras y funciones para crear y manejar un hash set, que se utiliza para eliminar palabras repetidas.
@@ -43,8 +43,8 @@ Preparar el archivo de palabras: Asegúrate de tener un archivo llamado 0_palabr
 
 ### Ejecutar el programa:
 
-## Copiar código
-./buscador
+Copiar código
+'./buscador'
 Ingresar las letras a buscar: Cuando se te solicite, ingresa las letras que deseas buscar.
 
 Seleccionar el tipo de búsqueda: Ingresa el número correspondiente a la opción de búsqueda:
