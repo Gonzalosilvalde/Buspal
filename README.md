@@ -56,7 +56,7 @@ Revisar los resultados: Los resultados se guardarán en un archivo llamado resul
 
 ### Dependencias
 OpenMP: Para la paralelización del código de búsqueda. Asegúrate de tener OpenMP instalado y habilitado en tu compilador.
-Contribuciones
+
 
 
 
