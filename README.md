@@ -36,15 +36,14 @@ Para compilar el proyecto, utiliza el siguiente comando:
 
 Copiar código
 `gcc -o buscador main.c hashset.c busqueda.c -fopenmp`
-Esto generará un ejecutable llamado buscador.
+Esto generará un ejecutable llamado 'buscador'.
 
-Uso
-Preparar el archivo de palabras: Asegúrate de tener un archivo llamado 0_palabras_todas.txt en el mismo directorio que el ejecutable. Este archivo debe contener una palabra por línea.
+### Uso
+Preparar el archivo de palabras: Asegúrate de tener un archivo llamado 0_palabras_todas.txt en el mismo directorio que el ejecutable. Este archivo debe contener una palabra por línea. En este caso hay uno en teoría con todas las palabras del castellano que encontre en el repositorio [repositorio diccionario-espanol-txt](https://github.com/JorgeDuenasLerin/diccionario-espanol-txt)
 
-Ejecutar el programa:
+### Ejecutar el programa:
 
-sh
-Copiar código
+## Copiar código
 ./buscador
 Ingresar las letras a buscar: Cuando se te solicite, ingresa las letras que deseas buscar.
 
@@ -55,12 +54,9 @@ Seleccionar el tipo de búsqueda: Ingresa el número correspondiente a la opció
 2 para buscar palabras que contengan todas las letras en cualquier orden.
 Revisar los resultados: Los resultados se guardarán en un archivo llamado resultados.txt.
 
-Dependencias
+### Dependencias
 OpenMP: Para la paralelización del código de búsqueda. Asegúrate de tener OpenMP instalado y habilitado en tu compilador.
 Contribuciones
-Si deseas contribuir a este proyecto, por favor, realiza un fork del repositorio y envía un pull request con tus cambios.
 
-Licencia
-Este proyecto está licenciado bajo la Licencia MIT. Consulta el archivo LICENSE para más detalles.
 
 
