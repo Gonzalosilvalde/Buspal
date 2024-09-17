@@ -4,9 +4,9 @@ Este proyecto es una aplicación en C que permite buscar palabras en un archivo 
 # Funcionalidad
 El programa ofrece tres tipos de búsquedas en un conjunto de palabras:
 
-1. ** Palabras que contengan todas las letras especificadas.
-2. ** Palabras que contengan alguna de las letras especificadas.
-3. ** Palabras que contengan todas las letras especificadas en cualquier orden (y con posibles letras adicionales).
+1. Palabras que contengan todas las letras especificadas.
+2. Palabras que contengan alguna de las letras especificadas.
+3. Palabras que contengan todas las letras especificadas en cualquier orden (y con posibles letras adicionales).
 # Estructura del Proyecto
 El código está dividido en varios archivos para una mejor modularidad:
 
