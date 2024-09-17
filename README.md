@@ -44,7 +44,7 @@ Preparar el archivo de palabras: Asegúrate de tener un archivo llamado 0_palabr
 ### Ejecutar el programa:
 
 Copiar código
-'./buscador'
+`./buscador`
 Ingresar las letras a buscar: Cuando se te solicite, ingresa las letras que deseas buscar.
 
 Seleccionar el tipo de búsqueda: Ingresa el número correspondiente a la opción de búsqueda:
