@@ -1,42 +1,41 @@
-"""Buscador de Palabras en C"""
+# Buscador de Palabras en C 
 Este proyecto es una aplicación en C que permite buscar palabras en un archivo de texto basado en ciertas letras, con varias opciones de búsqueda. Está modularizado en diferentes archivos para facilitar su mantenimiento y comprensión.
 
-Funcionalidad
+# Funcionalidad
 El programa ofrece tres tipos de búsquedas en un conjunto de palabras:
 
-Palabras que contengan todas las letras especificadas.
-Palabras que contengan alguna de las letras especificadas.
-Palabras que contengan todas las letras especificadas en cualquier orden (y con posibles letras adicionales).
-Estructura del Proyecto
+1. **Palabras que contengan todas las letras especificadas.
+2. **Palabras que contengan alguna de las letras especificadas.
+3. **Palabras que contengan todas las letras especificadas en cualquier orden (y con posibles letras adicionales).
+# Estructura del Proyecto
 El código está dividido en varios archivos para una mejor modularidad:
 
-hashset.h: Declaraciones para el manejo del hash set.
-hashset.c: Implementación de las funciones del hash set.
-busqueda.h: Declaraciones para las funciones de búsqueda.
-busqueda.c: Implementación de las funciones de búsqueda.
-main.c: Archivo principal que utiliza las funciones definidas en los otros archivos.
-Archivos del Proyecto
-hashset.h
+- ** hashset.h: Declaraciones para el manejo del hash set.
+- ** hashset.c: Implementación de las funciones del hash set. 
+- ** busqueda.c: Implementación de las funciones de búsqueda.
+- ** main.c: Archivo principal que utiliza las funciones definidas en los otros archivos.
+# Archivos del Proyecto
+### hashset.h
 Define las estructuras y funciones para crear y manejar un hash set, que se utiliza para eliminar palabras repetidas.
 
-hashset.c
+### hashset.c
 Implementa las funciones declaradas en hashset.h. Incluye la creación del hash set, la inserción de palabras, y la liberación de memoria.
 
-busqueda.h
+### busqueda.h
 Contiene las declaraciones de las funciones de búsqueda que permiten encontrar palabras en función de las letras dadas.
 
-busqueda.c
+### busqueda.c
 Implementa las funciones de búsqueda para encontrar palabras que contengan todas, alguna o todas las letras en cualquier orden.
 
-main.c
+### main.c
 Contiene el código principal que interactúa con el usuario, lee las palabras desde un archivo, realiza la búsqueda según la opción seleccionada y guarda los resultados en un archivo.
 
-Compilación
+## Compilación
 Para compilar el proyecto, utiliza el siguiente comando:
 
-sh
+''' sh
 Copiar código
-gcc -o buscador main.c hashset.c busqueda.c -fopenmp
+gcc -o buscador main.c hashset.c busqueda.c -fopenmp'''
 Esto generará un ejecutable llamado buscador.
 
 Uso
